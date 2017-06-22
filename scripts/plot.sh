@@ -8,13 +8,12 @@ ref_band="1367A"
 case $1 in
     "PSD"|"psd"|"PSDs"|"PSDS"|"psds")
         gnuplot_file=psd_atlas.gp
-        scripts/propagate_tables.sh
         gnuplot_input=$(cat scripts/templates/${gnuplot_file}|
                         perl -pe 's|\n|␤|g')
         for tabfile in data/tables/psd_*.tab;
         do
             echo_band=$(basename $tabfile|
-                        sed 's|psd_\([0-9]????A\).tab|\1|')
+                        sed 's|psd_\([0-9]\{4\}A\).tab|\1|')
             if [[ "$echo_band" == "$ref_band" ]] ; then continue; fi
             gnuplot_input_edit=$(echo "$gnuplot_input"|
                                     sed "s|%FILE%|$tabfile|"|

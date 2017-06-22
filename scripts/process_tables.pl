@@ -158,15 +158,16 @@ while( each %function_bin) {
 }
 close($datafile);
 
-open($datafile,'>',"tmp.crsspctrm") or die $!;
-while( each %function_bin) {
-    say $datafile
-        $_ . " " .
-        $function_bin{$_}{"crsspctrm_PSD_μ"} . " " .
-        $function_bin{$_}{"Δ"} . " " .
-        $function_bin{$_}{"crsspctrm_PSD_σ"};
-}
-close($datafile);
+# cross spectrum not needed
+# open($datafile,'>',"tmp.crsspctrm") or die $!;
+# while( each %function_bin) {
+#     say $datafile
+#         $_ . " " .
+#         $function_bin{$_}{"crsspctrm_PSD_μ"} . " " .
+#         $function_bin{$_}{"Δ"} . " " .
+#         $function_bin{$_}{"crsspctrm_PSD_σ"};
+# }
+# close($datafile);
 
 open($datafile,'>',"tmp.lag") or die $!;
 while( each %function_bin) {

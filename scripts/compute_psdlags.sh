@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-mkdir -p data
+mkdir -p data/tables
+mkdir -p logs
+
+analysis_script="psdlag_4bin.py"
 
 ref_band="1367A"
 refpsd_tabfile=data/tables/psd_${ref_band}.tab
@@ -20,16 +23,23 @@ do
     echo -n "Running psdlag using ref band ${ref_band}"
     echo " and echo band $echo_band."
 
-    # psdlag python script will call clag and print rudimentary tables to *.out
-    time scripts/psdlag_4bin.py data/lc/${ref_band}.lc $lightcurve > /dev/null
+    echo $(date) >> logs/$echo_band
+    echo " " >> logs/$echo_band
+
+    # psdlag python script will call clag and print rudimentary tables to *.out, 
+    # and is logged to the log file
+    time scripts/${analysis_script} data/lc/${ref_band}.lc $lightcurve >> logs/${echo_band}
 
 
     # process_tables perl script reads *.out files from the python script,
     # then creates other useful tables
-    scripts/process_tables.pl $echo_band > /dev/null
+
+    scripts/process_tables.pl $echo_band 
 
     # saves the tables to data/tables/
     mv -v tmp.echopsd $echopsd_tabfile
     mv -v tmp.refpsd $refpsd_tabfile
     mv -v tmp.lag $timelag_tabfile
+
+    echo ""
 done
