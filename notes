@@ -1,0 +1,8 @@
+Ok, a quick summary of what we talked about doing for next week:
+
+1) Make the 18 panel figures with PSD and lag for the 4 frequency bin case
+2) Make an 18 panel figure that overlays the 4-bin and 7-bin cases.
+3) Try 5 bins and 6 bins: how many wavelengths fully coverage for each?  Make 18 panel figures for these too, so we can compare everything
+4) Write out ascii files with: low frequency, high frequency, PSD and Lag for each wavelength.  This will be what I need to try and fit the lags and PSDs…..
+
+Ed
