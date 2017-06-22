@@ -39,7 +39,7 @@ open $freq_file,'<',"freq.out" or die $!;
 open $ref_psd_file,'<',"ref_psd.out" or die $!;
 open $echo_psd_file,'<',"echo_psd.out" or die $!;
 open $crsspctrm_file,'<',"crsspctrm.out" or die $!;
-open $timelag_file,'<',"timelag.out" or die $!;
+open $timelag_file,'<',"lag.out" or die $!;
 
 =pod
 

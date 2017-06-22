@@ -1,5 +1,5 @@
 set terminal pdf size 3.5,5
-set output "timelag_atlas.pdf"
+set output "lag_atlas.pdf"
 set termopt enhanced
 
 set macros
