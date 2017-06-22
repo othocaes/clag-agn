@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import numpy as np
 from scipy.stats import norm
 from scipy.stats import lognorm
@@ -9,11 +10,11 @@ import matplotlib
 # %pylab inline
 
 
-ref_file="data/lc/1367A.lc"
-echo_file="data/lc/2246A.lc"
+#ref_file="data/lc/1367A.lc"
+#echo_file="data/lc/2246A.lc"
 
-#ref_file  = str(sys.argv[1])
-#echo_file = str(sys.argv[2])
+ref_file  = str(sys.argv[1])
+echo_file = str(sys.argv[2])
 
 
 dt = 0.01

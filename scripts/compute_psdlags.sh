@@ -7,11 +7,15 @@ ref_band="1367A"
 for lightcurve in data/lc/*.lc
 do
     
-    echo_band=$(basename $lightcurve|sed 's|[^≺]*[_ ]≺[_ ]\([^≺_ ]*\)[_ ]{[^_ ]*}|\1|')
+    echo_band=$(basename $lightcurve|sed 's|\([0-9]????A\).lc|\1|')
     if [[ $ref_band == $echo_band ]]; then continue; fi
-    err_str=$(basename $lightcurve|sed 's|[^≺]*[_ ]≺[_ ][^≺_ ]*[_ ]{[^_ ]*;\(σ∊[CLM][MFC]\)}|\1|')
+    err_str="LF"
 
-echo "Tabling PSD and time lags referred to ${ref_band} for $echo_band{${err_str}}."
+echo -n "Running psdlag using ref band ${ref_band}"
+echo " and echo band $echo_band{${err_str}}."
+
+scripts/psdlag_4bin.py
+
 
     # Propagate tables into analyses/tables
     echoPSD_tabfile=analyses/tables/PSD_${echo_band}_\{${err_str}\}.tab

@@ -27,7 +27,7 @@ scripts/fix_thor_names.sh
 for table in analyses/*
 do
     # Grab and determine labels of analyses, skip if over the same band.
-    ref_band=$(basename $table|sed 's|\([^≺]*\)[_ ]≺[_ ][^≺_ ]*[_ ]{[^_ ]*}|\1|')
+    ref_band=$(basename $table|sed 's|[_ ]≺[_ ][^≺_ ]*[_ ]{[^_ ]*}|\1|')
     echo_band=$(basename $table|sed 's|[^≺]*[_ ]≺[_ ]\([^≺_ ]*\)[_ ]{[^_ ]*}|\1|')
     err_str=$(basename $table|sed 's|[^≺]*[_ ]≺[_ ][^≺_ ]*[_ ]{[^_ ]*;\(σ∊[CLM][MFC]\)}|\1|')
 
