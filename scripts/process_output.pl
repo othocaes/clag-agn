@@ -192,7 +192,11 @@ foreach ( sort {$a <=> $b} keys %function_bin ) {
     say $datafile encode($charset,
         sprintf("%e   %e   %e   %e   %e   %e",
             ($_ - $function_bin{$_}{"Δ"}), 
-            ($_ + $function_bin{$_}{"Δ"})
+            ($_ + $function_bin{$_}{"Δ"}),
+            $function_bin{$_}{"echo_PSD_μ"},
+            $function_bin{$_}{"echo_PSD_σ"},
+            $function_bin{$_}{"timelag_μ"},
+            $function_bin{$_}{"timelag_σ"}
         ));
 }
 close($datafile)

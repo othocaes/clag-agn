@@ -31,10 +31,10 @@ do
     time scripts/${analysis_script} data/lc/${ref_band}.lc $lightcurve >> logs/${echo_band}
 
 
-    # process_tables perl script reads *.out files from the python script,
+    # process_output perl script reads *.out files from the python script,
     # then creates other useful tables
 
-    scripts/process_tables.pl $echo_band 
+    scripts/process_output.pl $echo_band 
 
     # saves the tables to data/tables/
     mv -v tmp.echopsd $echopsd_tabfile

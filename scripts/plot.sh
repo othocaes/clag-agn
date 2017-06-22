@@ -22,10 +22,11 @@ case $1 in
         done
         echo "$gnuplot_input"|perl -pe 's|␤|\n|g' > ${gnuplot_file}
         gnuplot $gnuplot_file
+        rm $gnuplot_file
     ;;
 
     "lags"|"lag"|"delay"|"delays")
-        gnuplot_file=timelag_atlas.gp
+        gnuplot_file=lag_atlas.gp
         gnuplot_input=$(cat scripts/templates/${gnuplot_file}|perl -pe 's|\n|␤|g')
         for tabfile in data/tables/lag_*.tab;
         do
@@ -41,6 +42,7 @@ case $1 in
         done
         echo "$gnuplot_input"|perl -pe 's|␤|\n|g' > ${gnuplot_file}
         gnuplot $gnuplot_file
+        rm $gnuplot_file
     ;;
 
     "tophat"|"th")
