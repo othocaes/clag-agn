@@ -45,6 +45,38 @@ case $1 in
         rm $gnuplot_file
     ;;
 
+    "twolags"|"2lags")
+        gnuplot_file=lag_overlay_atlas.gp
+        gnuplot_input=$(cat scripts/templates/${gnuplot_file}|perl -pe 's|\n|␤|g')
+        for tabfile in data/tables/${2}/lag_*.tab;
+        do
+            ref_band_extracted=$(basename $tabfile|
+                                    sed 's|lag_\([0-9]\{4\}A\)_[0-9]\{4\}A.tab|\1|')
+            echo_band=$(basename $tabfile|
+                        sed 's|lag_[0-9]\{4\}A_\([0-9]\{4\}A\).tab|\1|')
+            if [[ "$echo_band" == "$ref_band" ]] ; then continue; fi
+            gnuplot_input_edit=$(echo "$gnuplot_input"|
+                                    sed "s|%FILE%|$tabfile|"|
+                                    sed "s|%LABEL%|$echo_band|")
+            gnuplot_input="${gnuplot_input_edit}"
+        done
+        for tabfile in data/tables/${3}/lag_*.tab;
+        do
+            ref_band_extracted=$(basename $tabfile|
+                                    sed 's|lag_\([0-9]\{4\}A\)_[0-9]\{4\}A.tab|\1|')
+            echo_band=$(basename $tabfile|
+                        sed 's|lag_[0-9]\{4\}A_\([0-9]\{4\}A\).tab|\1|')
+            if [[ "$echo_band" == "$ref_band" ]] ; then continue; fi
+            gnuplot_input_edit=$(echo "$gnuplot_input"|
+                                    sed "s|%FILE%|$tabfile|"|
+                                    sed "s|%LABEL%|$echo_band|")
+            gnuplot_input="${gnuplot_input_edit}"
+        done
+        echo "$gnuplot_input"|perl -pe 's|␤|\n|g' > ${gnuplot_file}
+        gnuplot $gnuplot_file
+        rm $gnuplot_file
+    ;;    
+
     "tophat"|"th")
         mkdir -p data/tables/
         scripts/tophat_fft.pl
