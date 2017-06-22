@@ -34,7 +34,7 @@ t1, l1, l1e = np.loadtxt(ref_file).T
 #               0.22, 0.56])
 
 #D
-fqL = np.logspace(np.log10(0.008999999),np.log10(0.340002000),5)
+fqL = [0.0049999999] + np.logspace(np.log10(0.02999999),np.log10(0.340002000),5)
 nfq = len(fqL) - 1
 fqd = 10**(np.log10( (fqL[:-1]*fqL[1:]) )/2.)
 
