@@ -22,7 +22,7 @@ t1, l1, l1e = np.loadtxt(ref_file).T
 # errorbar(t1, l1, yerr=l1e, fmt='o')
 
 #A
-fqL = np.logspace(np.log10(0.0049999999),np.log10(0.340002000),8)
+fqL = [0.0049999999] + np.logspace(np.log10(0.049999999),np.log10(0.340002000),7)
 
 #B
 #fqL = np.array([0.0049999999, 0.018619375, 0.044733049,
