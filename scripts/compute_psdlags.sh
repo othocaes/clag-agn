@@ -3,6 +3,7 @@
 mkdir -p data
 
 ref_band="1367A"
+refpsd_tabfile=data/tables/psd_${ref_band}.tab
 
 for lightcurve in data/lc/*.lc
 do
@@ -11,20 +12,21 @@ do
     if [[ $ref_band == $echo_band ]]; then continue; fi
     err_str="LF"
 
-echo -n "Running psdlag using ref band ${ref_band}"
-echo " and echo band $echo_band{${err_str}}."
+    # Save tables with these filenames
+    echopsd_tabfile=data/tables/psd_${echo_band}.tab
+    timelag_tabfile=data/tables/lag_${ref_band}_${echo_band}.tab
 
-scripts/psdlag_4bin.py
+    echo -n "Running psdlag using ref band ${ref_band}"
+    echo " and echo band $echo_band{${err_str}}."
+
+    # psdlag python script will call clag and print tables
+    # tmp.* files.
+    echo scripts/psdlag_4bin.py ${ref_band}.lc $lightcurve
 
 
-    # Propagate tables into analyses/tables
-    echoPSD_tabfile=analyses/tables/PSD_${echo_band}_\{${err_str}\}.tab
-    refPSD_tabfile=analyses/tables/PSD_${ref_band}_\{${err_str}\}.tab
-    timelag_tabfile=analyses/tables/timelag_${ref_band}_≺_${echo_band}_\{${err_str}\}.tab
-
-    # Output curves to temporary files using perl script, move tables to
-    # permanent location. This just assumes there are no conflicts.
-    scripts/extract_tables.pl $lightcurve > /dev/null
+    # process_tables perl script reads tmp.* files and creates some
+    # other useful tables
+    scripts/process_tables.pl $lightcurve > /dev/null
     mv tmp.echoPSD $echoPSD_tabfile
     mv tmp.refPSD $refPSD_tabfile
     mv tmp.timelag $timelag_tabfile
