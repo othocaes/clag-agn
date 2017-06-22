@@ -27,11 +27,12 @@ case $1 in
     "lags"|"lag"|"delay"|"delays")
         gnuplot_file=timelag_atlas.gp
         gnuplot_input=$(cat scripts/templates/${gnuplot_file}|perl -pe 's|\n|␤|g')
-        scripts/propagate_tables.sh
-        for tabfile in data/tables/timelag_*${errtype}*.tab;
+        for tabfile in data/tables/lag_*.tab;
         do
-            ref_band_extracted=$(basename $tabfile|sed 's|timelag_\([^≺]*\)[_ ]≺[_ ][^≺_ ]*[_ ]{[^_ ]*}.tab|\1|')
-            echo_band=$(basename $tabfile|sed 's|timelag_[^≺]*[_ ]≺[_ ]\([^≺_ ]*\)[_ ]{[^_ ]*}.tab|\1|')
+            ref_band_extracted=$(basename $tabfile|
+                                    sed 's|lag_\([0-9]\{4\}A\)_[0-9]\{4\}A.tab|\1|')
+            echo_band=$(basename $tabfile|
+                        sed 's|lag_[0-9]\{4\}A_\([0-9]\{4\}A\).tab|\1|')
             if [[ "$echo_band" == "$ref_band" ]] ; then continue; fi
             gnuplot_input_edit=$(echo "$gnuplot_input"|
                                     sed "s|%FILE%|$tabfile|"|
