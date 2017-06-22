@@ -36,6 +36,9 @@ do
 
     scripts/process_output.pl $echo_band 
 
+    # So if one fails we don't read the previous output
+    rm *.out
+
     # saves the tables to data/tables/
     mv -v tmp.echopsd $echopsd_tabfile
     mv -v tmp.refpsd $refpsd_tabfile

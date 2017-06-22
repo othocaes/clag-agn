@@ -45,8 +45,8 @@ case $1 in
         rm $gnuplot_file
     ;;
 
-    "twolags"|"2lags")
-        gnuplot_file=lag_overlay_atlas.gp
+    "twolags"|"2lags"|"overlay")
+        gnuplot_file=lag_atlas_overlay.gp
         gnuplot_input=$(cat scripts/templates/${gnuplot_file}|perl -pe 's|\n|␤|g')
         for tabfile in data/tables/${2}/lag_*.tab;
         do
@@ -56,7 +56,7 @@ case $1 in
                         sed 's|lag_[0-9]\{4\}A_\([0-9]\{4\}A\).tab|\1|')
             if [[ "$echo_band" == "$ref_band" ]] ; then continue; fi
             gnuplot_input_edit=$(echo "$gnuplot_input"|
-                                    sed "s|%FILE%|$tabfile|"|
+                                    sed "s|%FILEA%|$tabfile|"|
                                     sed "s|%LABEL%|$echo_band|")
             gnuplot_input="${gnuplot_input_edit}"
         done
@@ -68,7 +68,7 @@ case $1 in
                         sed 's|lag_[0-9]\{4\}A_\([0-9]\{4\}A\).tab|\1|')
             if [[ "$echo_band" == "$ref_band" ]] ; then continue; fi
             gnuplot_input_edit=$(echo "$gnuplot_input"|
-                                    sed "s|%FILE%|$tabfile|"|
+                                    sed "s|%FILEB%|$tabfile|"|
                                     sed "s|%LABEL%|$echo_band|")
             gnuplot_input="${gnuplot_input_edit}"
         done

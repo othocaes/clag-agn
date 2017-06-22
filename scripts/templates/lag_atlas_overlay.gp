@@ -1,5 +1,5 @@
 set terminal pdf size 3.5,5
-set output "lag_atlas.pdf"
+set output "lag_atlas_overlay.pdf"
 set termopt enhanced
 
 set macros
@@ -50,109 +50,109 @@ set multiplot layout 6,3 rowsfirst
     @VSET_1; @HSET_1
     @NOXNUMS; @YNUMS
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH b
     @NOXNUMS; @NOYNUMS
     @VSET_1; @HSET_2
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     #-- GRAPH c
     @NOXNUMS; @NOYNUMS
     @VSET_1; @HSET_3
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH d
     @NOXNUMS; @YNUMS
     @VSET_2; @HSET_1
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @NOXNUMS; @NOYNUMS
     @VSET_2; @HSET_2
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @NOXNUMS; @NOYNUMS
     @VSET_2; @HSET_3
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @NOXNUMS; @YNUMS
     @VSET_3; @HSET_1
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @NOXNUMS; @NOYNUMS
     @VSET_3; @HSET_2
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @NOXNUMS; @NOYNUMS
     @VSET_3; @HSET_3
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @NOXNUMS; @YLABEL
     @VSET_4; @HSET_1
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @NOXNUMS; @NOYNUMS
     @VSET_4; @HSET_2
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @NOXNUMS; @NOYNUMS
     @VSET_4; @HSET_3
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @NOXNUMS; @YNUMS
     @VSET_5; @HSET_1
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @NOXNUMS; @NOYNUMS
     @VSET_5; @HSET_2
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @NOXNUMS; @NOYNUMS
     @VSET_5; @HSET_3
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @XNUMS; @YNUMS
     @VSET_6; @HSET_1
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @XLABEL; @NOYNUMS
     @VSET_6; @HSET_2
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
     
     # --- GRAPH a
     @XNUMS; @NOYNUMS
     @VSET_6; @HSET_3
     set label 1 '%LABEL%' @POS
-    plot '%FILE%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black"
+    plot '%FILEA%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "black", '%FILEB%' using 1:2:($2-$4):($2+$4) with yerrorbars pt 7 ps .3 lt rgb "red"
 
 
 unset multiplot
