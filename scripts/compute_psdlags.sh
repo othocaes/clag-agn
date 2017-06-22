@@ -3,7 +3,7 @@
 mkdir -p data/tables
 mkdir -p logs
 
-analysis_script="psdlag_4bin.py"
+analysis_script="psdlag_5bin.py"
 
 ref_band="1367A"
 refpsd_tabfile=data/tables/psd_${ref_band}.tab
@@ -24,6 +24,7 @@ do
     echo " and echo band $echo_band."
 
     echo $(date) >> logs/$echo_band
+    echo "using ${analysis_script}"
     echo " " >> logs/$echo_band
 
     # psdlag python script will call clag and print rudimentary tables to *.out, 
