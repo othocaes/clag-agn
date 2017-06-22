@@ -138,7 +138,7 @@ if($debug) {
 
 close($outputfile);
 
-open($datafile,'>',"tmp.refPSD") or die $!;
+open($datafile,'>',"tmp.refpsd") or die $!;
 while( each %function_bin) {
     say $datafile
         $_ . " " .
@@ -148,7 +148,7 @@ while( each %function_bin) {
 }
 close($datafile);
 
-open($datafile,'>',"tmp.echoPSD") or die $!;
+open($datafile,'>',"tmp.echopsd") or die $!;
 while( each %function_bin) {
     say $datafile
         $_ . " " .
@@ -158,7 +158,7 @@ while( each %function_bin) {
 }
 close($datafile);
 
-open($datafile,'>',"tmp.crsspctrmPSD") or die $!;
+open($datafile,'>',"tmp.crsspctrm") or die $!;
 while( each %function_bin) {
     say $datafile
         $_ . " " .
@@ -168,7 +168,7 @@ while( each %function_bin) {
 }
 close($datafile);
 
-open($datafile,'>',"tmp.timelag") or die $!;
+open($datafile,'>',"tmp.lag") or die $!;
 while( each %function_bin) {
     say $datafile
         $_ . " " .
