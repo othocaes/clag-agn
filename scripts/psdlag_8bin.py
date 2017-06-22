@@ -70,6 +70,7 @@ echo_psd_err = p2e
 Cx = clag.clag('cxd10r', [[t1,t2]], [[l1,l2]], [[l1e,l2e]], dt, fqL, p1, p2)
 p  = np.concatenate( ((p1+p2)*0.5-0.3,p1*0+0.1) ) # a  good starting point generally
 p, pe = clag.optimize(Cx, p)
+p, pe = clag.errors(Cx, p, pe)
 
 phi, phie = p[nfq:], pe[nfq:]
 lag, lage = phi/(2*np.pi*fqd), phie/(2*np.pi*fqd)    

@@ -3,7 +3,7 @@
 mkdir -p data/tables
 mkdir -p logs
 
-analysis_script="psdlag_5bin.py"
+analysis_script="psdlag_4bin.py"
 
 ref_band="1367A"
 refpsd_tabfile=data/tables/psd_${ref_band}.tab

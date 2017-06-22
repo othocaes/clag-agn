@@ -77,6 +77,7 @@ Cx = clag.clag('cxd10r',
 # a  good starting point generally
 p  = np.concatenate( ((p1+p2)*0.5-0.3,p1*0+0.1) ) 
 p, pe = clag.optimize(Cx, p)
+p, pe = clag.errors(Cx, p, pe)
 
 phi, phie = p[nfq:], pe[nfq:]
 lag, lage = phi/(2*np.pi*fqd), phie/(2*np.pi*fqd)    
