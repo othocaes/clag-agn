@@ -34,7 +34,10 @@ t1, l1, l1e = np.loadtxt(ref_file).T
 #               0.22, 0.56])
 
 #D
-fqL = [0.0049999999] + np.logspace(np.log10(0.02999999),np.log10(0.340002000),5)
+fqL = [0.0049999999] + np.logspace(np.log10(0.05999999),np.log10(0.340002000),5)
+fqL = np.array([0.0049999999, 0.044733049,
+                0.10747115,
+                0.25819945, 0.44020915])
 nfq = len(fqL) - 1
 fqd = 10**(np.log10( (fqL[:-1]*fqL[1:]) )/2.)
 
@@ -45,7 +48,6 @@ fqd = 10**(np.log10( (fqL[:-1]*fqL[1:]) )/2.)
 P1 = clag.clag('psd10r', [t1], [l1], [l1e], dt, fqL)
 p1 = np.ones(nfq)
 p1, p1e = clag.optimize(P1, p1)
-
 p1, p1e = clag.errors(P1, p1, p1e)
 
 
