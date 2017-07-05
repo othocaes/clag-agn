@@ -5,7 +5,7 @@ set termopt enhanced
 set macros
 
     # Placement of the a,b,c,d labels in the graphs
-    POS = "at graph 0.61,0.85 font 'Times,12'"
+    POS = "at graph 0.72,0.88 font 'Times,9'"
     
     # x- and ytics for each row resp. column
     NOXNUMS = "unset xlabel;\
@@ -33,16 +33,13 @@ set macros
 unset key
 set logscale x
 set xtics auto font 'Times,9' offset 0,.5
-set ytics auto font 'Times,9'
-set ytics add ('' -0.5 1,'' -1.5 1,'' -2.5 1,'' -3.5 1,'' -4.5 1)
-
-# xrange from 2016 REU freq bins
-#set xrange [0.005:0.620];
-set yrange [-5.5:0.5]
+set ytics (-4,-2,0,2,4) font 'Times,9'
+set ytics add ('' 2.5 1,'' 1.5 1,'' 0.5 1,'' -0.5 1,'' -1.5 1,'' -2.5 1,'' -3.5 1,'' -4.5 1)
+set ytics add ('' -5 2,'' -3 2,'' -1 2,'' 1 2,'' 3 2,'' 5 2)
 
 # xrange pulled from example.py from first version of clag
 set xrange [0.001:5]
-set yrange [-5.5:0.5]
+set yrange [-5.5:2.5]
 
 set multiplot layout 6,3 rowsfirst
 

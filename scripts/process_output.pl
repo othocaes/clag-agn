@@ -18,6 +18,9 @@ our $debug=0;
 
 if ($debug) { $verbose=1; }
 
+# @ARGV[0] takes the echo wavelength for use in filename
+$echo_λ = @ARGV[0];
+$ref_λ = "3465A";
 
 # This section locates the output data of interest in a
 # psdlab output file.
@@ -27,9 +30,9 @@ if (!${^UTF8LOCALE}) {
 my $charset=$ENV{LANG};
 
 
-# @ARGV[0] takes the echo wavelength for use in filename
-
-$echo_λ = @ARGV[0];
+my $echopsd_tabfile="data/tables/psd_${echo_λ}.tab";
+my $refpsd_tabfile="data/tables/psd_${ref_λ}.tab";
+my $timelag_tabfile="data/tables/lag_${ref_λ}_${echo_λ}.tab";
 
 # This program attempts to fill function_bin with the tabulated
 # PSDs and time lags.
@@ -138,7 +141,7 @@ if($debug) {
 
 close($outputfile);
 
-open($datafile,'>',"tmp.refpsd") or die $!;
+open($datafile,'>',$refpsd_tabfile) or die $!;
 while( each %function_bin) {
     say $datafile
         $_ . " " .
@@ -148,7 +151,7 @@ while( each %function_bin) {
 }
 close($datafile);
 
-open($datafile,'>',"tmp.echopsd") or die $!;
+open($datafile,'>',$echopsd_tabfile) or die $!;
 while( each %function_bin) {
     say $datafile
         $_ . " " .
@@ -169,7 +172,7 @@ close($datafile);
 # }
 # close($datafile);
 
-open($datafile,'>',"tmp.lag") or die $!;
+open($datafile,'>',$timelag_tabfile) or die $!;
 while( each %function_bin) {
     say $datafile
         $_ . " " .
@@ -183,7 +186,7 @@ close($datafile);
 #open($datafile,'>',"tmp.echoPSD") or die $!;
 
 
-open($datafile,'>',"cackett_psdlag_" . $echo_λ . ".tab") or die $!;
+open($datafile,'>',"data/tables/cackett_psdlag_" . $echo_λ . ".tab") or die $!;
 say $datafile encode($charset,
     sprintf("#freqmin        freqmax        psd            ".
         "psd error      lag            lag error      "
