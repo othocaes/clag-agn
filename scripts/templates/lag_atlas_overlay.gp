@@ -34,14 +34,137 @@ set macros
 unset key
 set logscale x
 set xtics auto font 'Times,9' offset 0,.5
-set ytics (-4,-2,0,2,4) font 'Times,9'
-set ytics add ('' -5.5 1,'' -4.5 1,'' -3.5 1,'' -2.5 1,'' -1.5 1,'' -0.5 1,'' 0.5 1,'' 1.5 1,'' 2.5 1,'' 3.5 1,'' 4.5 1,'' 5.5 1)
-set ytics add ('' -5 2,'' -3 2,'' -1 2,'' 1 2,'' 3 2,'' 5 2)
-set xrange [0.005:0.620];
-set yrange [-5:5]
+set ytics ('0' 0,'5' 5,'10' 10,'15' 15,'20' 20,'-5' -5,'' -10,-15,-20) font 'Times,9'
+#minor ticks
+#set ytics add (-20)
+set ytics add ('' -19.5 1)
+set ytics add ('' -19 1)
+set ytics add ('' -18.5 1)
+set ytics add ('' -18 1)
+set ytics add ('' -17.5)
+set ytics add ('' -17 1)
+set ytics add ('' -16.5 1)
+set ytics add ('' -16 1)
+set ytics add ('' -15.5 1)
+#set ytics add (-15)
+set ytics add ('' -14.5 1)
+set ytics add ('' -14 1)
+set ytics add ('' -13.5 1)
+set ytics add ('' -13 1)
+set ytics add ('' -12.5)
+set ytics add ('' -12 1)
+set ytics add ('' -11.5 1)
+set ytics add ('' -11 1)
+set ytics add ('' -10.5 1)
+#set ytics add ('' -10)
+set ytics add ('' -9.5 1)
+set ytics add ('' -9 1)
+set ytics add ('' -8.5 1)
+set ytics add ('' -8 1)
+set ytics add ('' -7.5) 
+set ytics add ('' -7 1)
+set ytics add ('' -6.5 1)
+set ytics add ('' -6 1)
+set ytics add ('' -5.5 1)
+#set ytics add (-5)
+set ytics add ('' -4.5 1)
+set ytics add ('' -4 1)
+set ytics add ('' -3.5 1)
+set ytics add ('' -3 1)
+set ytics add ('' -2.5)
+set ytics add ('' -2 1)
+set ytics add ('' -1.5 1)
+set ytics add ('' -1 1)
+set ytics add ('' -0.5 1)
+#set ytics add (0)
+set ytics add ('' 0.5 1)
+set ytics add ('' 1 1)
+set ytics add ('' 1.5 1)
+set ytics add ('' 2 1)
+set ytics add ('' 2.5)
+set ytics add ('' 3 1)
+set ytics add ('' 3.5 1)
+set ytics add ('' 4 1)
+set ytics add ('' 4.5 1)
+#set ytics add (5)
+set ytics add ('' 5.5 1)
+set ytics add ('' 6 1)
+set ytics add ('' 6.5 1)
+set ytics add ('' 7 1)
+set ytics add ('' 7.5)
+set ytics add ('' 8 1)
+set ytics add ('' 8.5 1)
+set ytics add ('' 9 1)
+set ytics add ('' 9.5 1)
+#set ytics add (10)
+set ytics add ('' 10.5 1)
+set ytics add ('' 11 1)
+set ytics add ('' 11.5 1)
+set ytics add ('' 12 1)
+set ytics add ('' 12.5)
+set ytics add ('' 13 1)
+set ytics add ('' 13.5 1)
+set ytics add ('' 14 1)
+set ytics add ('' 14.5 1)
+#set ytics add (15)
+set ytics add ('' 15.5 1)
+set ytics add ('' 16 1)
+set ytics add ('' 16.5 1)
+set ytics add ('' 17 1)
+set ytics add ('' 17.5)
+set ytics add ('' 18 1)
+set ytics add ('' 18.5 1)
+set ytics add ('' 19 1)
+set ytics add ('' 19.5 1)
+#set ytics add (20)
+#major ticks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set xrange [0.007:0.60];
+set yrange [-10:15]
 
 # Draw line at origin
-set arrow from 0.005,0 to 0.620,0 nohead lt 3 lc rgb 'black'
+set arrow from 0.007,0 to 0.60,0 nohead lt 3 lc rgb 'black'
 set pointsize 0
 
 set multiplot layout 6,3 rowsfirst

@@ -10,6 +10,7 @@ Ed
 
 
 
+
 4bin status
 ─────────────
     bin bounds:
@@ -19,7 +20,7 @@ Ed
         0.12724332
         0.32
     
-    all converged but 17
+    all converged but 1746A
     1158A is suspect
     4368A is suspect
     4392A is suspect
@@ -60,17 +61,3 @@ Ed
         3465A
         4392A
         8560A
-
-
-
-Hi Ed,
-
-
-
-I could not find any combination that allowed all models to converge. In all the combinations I've tried over the last 2 weeks, I never found 5 or 6 bins to be an advantage over 7 bins. I think it's reasonable for us to expect we can find 7-bin binnings that will work for some subsets with size about 1/3 of all lightcurves. We can tailor the bins to what we think are more important. That said, I was at least able to find one 4-bin binning that gave convergence for 17 of the 18 lightcurves. Some results are suspect because clag didn't report output for the fitting attempts for some parameters at those wavelengths. I could not get 1764A to converge under any binnings.
-
-We'll want to adjust the window spacing for the graphs, but for now I wanted to be sure the low values showed up. Again, these all have fully-developed errors for the lag measurements as reported by Abdu's program. The 7-bin overlayed result is just a best attempt to find a comprehensive setting. The boundaries and a suspect and convergence report are given below this message.
-
-I had to squeeze the frequency domain to get this to work well. I listed the boundaries below. Pushing up to 0.4 or down to 0.005 breaks many of these. I chose the outside boundaries based on two things: 0.008 is the nyquist frequency for something that occurs every ~60 days, right? So we wouldn't expect there to be much consistently observable lag on that time scale, since the smallest lightcurves aren't much longer than 100 days. At the high end, the lightcurves have a sampling rate of about 1 per day, which suggests the frequency scale should include up to 0.5. As I stated, that was a bit high, but bringing it down to 0.32 at that stage in my troubleshooting left me with the (considerable) result we see now.
-
-I will include a tar.gz archive with tables that are used to create this graph. The tables beginning with "cackett_" are tables in the format you requested corresponding to all of the results shown in the plots.
