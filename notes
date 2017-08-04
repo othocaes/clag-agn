@@ -12,3 +12,58 @@ Ok, a quick summary of what we talked about doing for next week:
 4) Write out ascii files with: low frequency, high frequency, PSD and Lag for each wavelength.  This will be what I need to try and fit the lags and PSDs…..
 
 Ed
+
+
+
+
+
+4bin status
+─────────────
+    bin bounds:
+        0.008
+        0.02011893
+        0.05059644
+        0.12724332
+        0.32
+    
+    all converged but 1746A
+    1158A is suspect
+    4368A is suspect
+    4392A is suspect
+
+
+7bin status
+─────────────
+    bin bounds:
+        0.008
+        0.01444256
+        0.02607345
+        0.04707094
+        0.08497812
+        0.15341274
+        0.27695915
+        0.5
+
+    converged:
+        2600A
+        3471A -- suspect
+        4368A
+        4775A
+        6175A
+        6439A -- suspect
+        7647A
+        9157A
+
+    stalled:
+        1746A
+        1928A
+        5404A
+        5468A
+
+    broken:
+        1158A
+        1479A
+        2246A
+        3465A
+        4392A
+        8560A

@@ -59,19 +59,24 @@ case $1 in
                                     sed "s|%FILEA%|$tabfile|"|
                                     sed "s|%LABEL%|$echo_band|")
             gnuplot_input="${gnuplot_input_edit}"
-        done
-        for tabfile in data/tables/${3}/lag_*.tab;
-        do
-            ref_band_extracted=$(basename $tabfile|
-                                    sed 's|lag_\([0-9]\{4\}A\)_[0-9]\{4\}A.tab|\1|')
-            echo_band=$(basename $tabfile|
-                        sed 's|lag_[0-9]\{4\}A_\([0-9]\{4\}A\).tab|\1|')
-            if [[ "$echo_band" == "$ref_band" ]] ; then continue; fi
+            comp_tabfile=$(echo $tabfile|sed "s|${2}|${3}|")
             gnuplot_input_edit=$(echo "$gnuplot_input"|
-                                    sed "s|%FILEB%|$tabfile|"|
-                                    sed "s|%LABEL%|$echo_band|")
+                                    sed "s|%FILEB%|$comp_tabfile|")
             gnuplot_input="${gnuplot_input_edit}"
+
         done
+#        for tabfile in data/tables/${3}/lag_*.tab;
+#        do
+#            ref_band_extracted=$(basename $tabfile|
+#                                    sed 's|lag_\([0-9]\{4\}A\)_[0-9]\{4\}A.tab|\1|')
+#            echo_band=$(basename $tabfile|
+#                        sed 's|lag_[0-9]\{4\}A_\([0-9]\{4\}A\).tab|\1|')
+#            if [[ "$echo_band" == "$ref_band" ]] ; then continue; fi
+#            gnuplot_input_edit=$(echo "$gnuplot_input"|
+#                                    sed "s|%FILEB%|$tabfile|"|
+#                                    sed "s|%LABEL%|$echo_band|")
+#            gnuplot_input="${gnuplot_input_edit}"
+#        done
         echo "$gnuplot_input"|perl -pe 's|␤|\n|g' > ${gnuplot_file}
         gnuplot $gnuplot_file
         rm $gnuplot_file
